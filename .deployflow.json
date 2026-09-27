@@ -1,0 +1,6 @@
+{
+  "provider": "netlify",
+  "buildCommand": "",
+  "outputDirectory": "dist",
+  "environment": "production"
+}
