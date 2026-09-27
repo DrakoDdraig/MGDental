@@ -34,7 +34,7 @@ export function HeroSection() {
               Ver tratamientos
             </a>
             <a
-              href={`https://wa.me/5491141472917?text=${encodeURIComponent("Hola, quiero consultar por un turno en MG Dental.")}`}
+              href={`https://wa.me/5491136153197?text=${encodeURIComponent("Hola, quiero consultar por un turno en MG Dental.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-white/35 px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-white/10"

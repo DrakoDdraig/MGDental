@@ -71,7 +71,7 @@ export function TreatmentsSection() {
               ¿No sabés qué tratamiento necesitás? Contanos tu consulta y te orientamos.
             </p>
             <a
-              href={`https://wa.me/5491141472917?text=${encodeURIComponent("Hola, quiero consultar por un tratamiento en MG Dental.")}`}
+              href={`https://wa.me/5491136153197?text=${encodeURIComponent("Hola, quiero consultar por un tratamiento en MG Dental.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-gold-dark"
