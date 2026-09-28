@@ -7,6 +7,12 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+export async function generateStaticParams() {
+  return Object.keys(TREATMENTS_BY_SLUG).map((slug) => ({
+    slug: slug,
+  }))
+}
+
 export default async function TreatmentPage({ params }: Props) {
   const { slug } = await params
   const treatment = TREATMENTS_BY_SLUG[slug]

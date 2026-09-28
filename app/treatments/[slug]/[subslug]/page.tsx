@@ -7,6 +7,20 @@ type Props = {
   params: Promise<{ slug: string; subslug: string }>
 }
 
+export async function generateStaticParams() {
+  const params: { slug: string; subslug: string }[] = []
+
+  Object.entries(TREATMENTS_BY_SLUG).forEach(([slug, treatment]) => {
+    if (treatment.subTreatments) {
+      treatment.subTreatments.forEach((sub) => {
+        params.push({ slug, subslug: sub.slug })
+      })
+    }
+  })
+
+  return params
+}
+
 export default async function SubTreatmentPage({ params }: Props) {
   const { slug, subslug } = await params
   const treatment = TREATMENTS_BY_SLUG[slug]
