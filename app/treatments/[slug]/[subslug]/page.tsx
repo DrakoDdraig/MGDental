@@ -1,18 +1,14 @@
-"use client"
-
-import { use } from "react"
 import { notFound } from "next/navigation"
-import { CldVideoPlayer } from "next-cloudinary"
-import "next-cloudinary/dist/cld-video-player.css"
 import Link from "next/link"
 import { TREATMENTS_BY_SLUG, WHATSAPP_NUMBER } from "@/lib/treatments"
+import { VideoPlayer } from "@/components/video-player"
 
 type Props = {
   params: Promise<{ slug: string; subslug: string }>
 }
 
-export default function SubTreatmentPage({ params }: Props) {
-  const { slug, subslug } = use(params)
+export default async function SubTreatmentPage({ params }: Props) {
+  const { slug, subslug } = await params
   const treatment = TREATMENTS_BY_SLUG[slug]
 
   if (!treatment || !treatment.subTreatments) {
@@ -43,14 +39,7 @@ export default function SubTreatmentPage({ params }: Props) {
         </h1>
 
         <div className="mt-10 overflow-hidden rounded-3xl border border-ink/10">
-          <CldVideoPlayer
-            id={`video-${subslug}`}
-            width="1920"
-            height="1080"
-            src={sub.videoPublicId}
-            transformation={{ quality: "auto", fetchFormat: "auto" }}
-            logo={false}
-          />
+          <VideoPlayer id={`video-${subslug}`} src={sub.videoPublicId} />
         </div>
 
         <div className="mt-10">
