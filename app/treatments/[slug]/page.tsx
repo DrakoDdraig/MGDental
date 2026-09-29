@@ -21,6 +21,11 @@ export default async function TreatmentPage({ params }: Props) {
     notFound()
   }
 
+  // Si tiene customPage, esta ruta no se usa (la página dedicada la maneja)
+  if (treatment.customPage) {
+    notFound()
+  }
+
   const hasSubTreatments =
     Array.isArray(treatment.subTreatments) && treatment.subTreatments.length > 0
 
@@ -71,8 +76,8 @@ export default async function TreatmentPage({ params }: Props) {
           </>
         ) : (
           <>
-            <div className="mt-10 overflow-hidden rounded-3xl border border-ink/10">
-              <VideoPlayer id={`video-${slug}`} src={treatment.videoPublicId!} />
+            <div className="mt-10">
+              <VideoPlayer src={treatment.videoPublicId!} />
             </div>
 
             <div className="mt-10">

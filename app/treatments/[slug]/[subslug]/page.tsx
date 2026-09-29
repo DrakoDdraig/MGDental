@@ -52,8 +52,8 @@ export default async function SubTreatmentPage({ params }: Props) {
           {sub.title}
         </h1>
 
-        <div className="mt-10 overflow-hidden rounded-3xl border border-ink/10">
-          <VideoPlayer id={`video-${subslug}`} src={sub.videoPublicId} />
+        <div className="mt-10">
+          <VideoPlayer src={sub.videoPublicId} />
         </div>
 
         <div className="mt-10">

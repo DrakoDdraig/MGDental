@@ -1,5 +1,4 @@
 import { TREATMENTS } from "@/lib/treatments"
-import Link from "next/link"
 
 export function TreatmentsSection() {
   return (
@@ -51,12 +50,13 @@ export function TreatmentsSection() {
 
                   <p className="text-sm leading-relaxed text-muted-foreground">{t.description}</p>
 
-                  <Link
+                  {/* Usamos <a> en lugar de <Link> para forzar recarga completa y evitar el bug del video */}
+                  <a
                     href={`/treatments/${t.slug}`}
                     className="justify-self-start rounded-full border border-gold px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-gold-dark transition-colors hover:bg-gold hover:text-white md:justify-self-end"
                   >
                     Ver tratamiento
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>

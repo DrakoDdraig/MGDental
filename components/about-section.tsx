@@ -27,7 +27,7 @@ const DOCTORS = [
   {
     name: "Dr. Milton Morón",
     role: "Odontólogo",
-    instagram: "https://www.instagram.com/dr.miltonmoron/", 
+    instagram: "https://www.instagram.com/od.miltonmoron/", 
   },
 ]
 

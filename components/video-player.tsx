@@ -1,22 +1,24 @@
 "use client"
 
-import { CldVideoPlayer } from "next-cloudinary"
-import "next-cloudinary/dist/cld-video-player.css"
-
 type Props = {
-  id: string
   src: string
 }
 
-export function VideoPlayer({ id, src }: Props) {
+export function VideoPlayer({ src }: Props) {
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+  const videoUrl = `https://res.cloudinary.com/${cloudName}/video/upload/f_auto,q_auto/${src}.mp4`
+
   return (
-    <CldVideoPlayer
-      id={id}
-      width="1920"
-      height="1080"
-      src={src}
-      transformation={{ quality: "auto", fetchFormat: "auto" }}
-      logo={false}
-    />
+    <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-3xl border border-ink/10">
+      <video
+        controls
+        playsInline
+        preload="metadata"
+        className="block h-auto w-full"
+      >
+        <source src={videoUrl} type="video/mp4" />
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>
   )
 }

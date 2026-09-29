@@ -10,7 +10,7 @@ export const TREATMENTS: Treatment[] = [
     name: "Estética dental",
     slug: "estetica-dental",
     subtitle: "Diseño de sonrisa",
-    description: "Láminas finas de porcelana o resinas esteticas que se adhieren a la superficie del diente para mejorar su forma, color y alineación.",
+    description: "Blanqueamiento, carillas y diseño de sonrisa para lograr una sonrisa armónica y natural.",
   },
   {
     name: "Implantes dentales",
@@ -28,13 +28,19 @@ export const TREATMENTS: Treatment[] = [
     name: "Periodoncia",
     slug: "periodoncia",
     subtitle: "Salud de encías",
-    description: "Prevención, tratamiento y limpieza de calculo dental (sarro) que afecta el tejido de soporte y a la encía.",
+    description: "Prevención y tratamiento de enfermedades de las encías y tejidos de soporte.",
   },
   {
     name: "Cirugía",
     slug: "cirugia",
     subtitle: "Cirugía bucal",
     description: "Extracciones y cirugía bucal con protocolos seguros y recuperación cuidada.",
+  },
+  {
+    name: "Prótesis",
+    slug: "protesis",
+    subtitle: "Fijas y removibles",
+    description: "Prótesis fijas y removibles, placas de bruxismo y soluciones personalizadas para recuperar tu sonrisa.",
   },
   {
     name: "Armonización orofacial",
@@ -71,6 +77,7 @@ export type TreatmentDetail = {
   whatsappMessage: string
   videoPublicId?: string
   subTreatments?: SubTreatment[]
+  customPage?: string
 }
 
 export const TREATMENTS_BY_SLUG: Record<string, TreatmentDetail> = {
@@ -85,7 +92,7 @@ export const TREATMENTS_BY_SLUG: Record<string, TreatmentDetail> = {
         slug: "carillas",
         title: "Carillas",
         description:
-          "Láminas finas de porcelana o resinas esteticas que se adhieren a la superficie del diente para mejorar su forma, color y alineación.",
+          "Láminas finas de porcelana o composite que se adhieren a la superficie del diente para mejorar su forma, color y alineación.",
         videoPublicId: "tratamientos/carillas",
         whatsappMessage: "¡Hola! Quería consultar por Carillas",
       },
@@ -97,6 +104,22 @@ export const TREATMENTS_BY_SLUG: Record<string, TreatmentDetail> = {
         videoPublicId: "tratamientos/blanqueamiento",
         whatsappMessage: "¡Hola! Quería consultar por Blanqueamiento",
       },
+      {
+        slug: "caries",
+        title: "Caries",
+        description:
+          "Tratamiento de caries dental para detener la progresión de la lesión y restaurar la pieza afectada.",
+        videoPublicId: "tratamientos/caries",
+        whatsappMessage: "¡Hola! Quería consultar por el tratamiento de Caries",
+      },
+      {
+        slug: "incrustaciones",
+        title: "Incrustaciones",
+        description:
+          "Restauraciones que se elaboran en laboratorio y se cementan en la pieza dental para reconstruirla con precisión y resistencia.",
+        videoPublicId: "tratamientos/incrustaciones",
+        whatsappMessage: "¡Hola! Quería consultar por Incrustaciones",
+      },
     ],
   },
   "implantes-dentales": {
@@ -104,7 +127,7 @@ export const TREATMENTS_BY_SLUG: Record<string, TreatmentDetail> = {
     subtitle: "Rehabilitación",
     videoPublicId: "tratamientos/implantes-dentales",
     description:
-      "Reemplazo de piezas perdidas con implantes de titanio o zirconia, seguros y duraderos.",
+      "Reemplazo de piezas perdidas con implantes de titanio, seguros y duraderos.",
     whatsappMessage: "¡Hola! Quería consultar por el tratamiento de Implantes dentales",
   },
   endodoncia: {
@@ -120,7 +143,7 @@ export const TREATMENTS_BY_SLUG: Record<string, TreatmentDetail> = {
     subtitle: "Salud de encías",
     videoPublicId: "tratamientos/periodoncia",
     description:
-      "Prevención, tratamiento y limpieza de calculo dental (sarro) que afecta el tejido de soporte y a la encía.",
+      "Prevención y tratamiento de enfermedades de las encías y tejidos de soporte.",
     whatsappMessage: "¡Hola! Quería consultar por el tratamiento de Periodoncia",
   },
   cirugia: {
@@ -134,11 +157,19 @@ export const TREATMENTS_BY_SLUG: Record<string, TreatmentDetail> = {
         slug: "exodoncia",
         title: "Exodoncia",
         description:
-          "Extracción de piezas dentarias simples y complejas que no pueden conservarse, con protocolo seguro y cuidado post-operatorio.",
+          "Extracción de piezas dentarias que no pueden conservarse, con protocolo seguro y cuidado post-operatorio.",
         videoPublicId: "tratamientos/exodoncia",
         whatsappMessage: "¡Hola! Quería consultar por una Exodoncia",
       },
     ],
+  },
+  protesis: {
+    title: "Prótesis",
+    subtitle: "Fijas y removibles",
+    description:
+      "Prótesis fijas y removibles, placas de bruxismo y soluciones personalizadas para recuperar tu sonrisa.",
+    whatsappMessage: "¡Hola! Quería consultar por el tratamiento de Prótesis",
+    customPage: "protesis",
   },
   "armonizacion-orofacial": {
     title: "Armonización orofacial",
@@ -152,9 +183,63 @@ export const TREATMENTS_BY_SLUG: Record<string, TreatmentDetail> = {
   ortodoncia: {
     title: "Ortodoncia",
     subtitle: "Niños y adultos",
-    videoPublicId: "Ortodoncia",
+    videoPublicId: "tratamientos/Ortodoncia",
     description:
       "Brackets y alineadores para corregir la posición de tus dientes a toda edad.",
     whatsappMessage: "¡Hola! Quería consultar por el tratamiento de Ortodoncia",
   },
 }
+
+// ─────────────────────────────────────────────────────────────
+// Opciones para la página de Prótesis
+// ─────────────────────────────────────────────────────────────
+
+export type ProtOption = {
+  value: string
+  label: string
+  whatsappMessage: string
+}
+
+export const PROTESIS_FIJAS_OPTIONS: ProtOption[] = [
+  {
+    value: "pernos",
+    label: "Pernos",
+    whatsappMessage: "¡Hola! Quería consultar por las prótesis fijas de pernos",
+  },
+  {
+    value: "coronas",
+    label: "Coronas",
+    whatsappMessage: "¡Hola! Quería consultar por las prótesis fijas de coronas",
+  },
+]
+
+export const PROTESIS_REMOVIBLES_OPTIONS: ProtOption[] = [
+  {
+    value: "cromocobalto",
+    label: "Cromocobalto",
+    whatsappMessage: "¡Hola! Quería consultar por las prótesis removibles de cromocobalto",
+  },
+  {
+    value: "acrilico",
+    label: "Acrílico",
+    whatsappMessage: "¡Hola! Quería consultar por las prótesis removibles de acrílico",
+  },
+  {
+    value: "flexibles",
+    label: "Flexibles",
+    whatsappMessage: "¡Hola! Quería consultar por las prótesis removibles flexibles",
+  },
+]
+
+export const PLACAS_BRUXISMO_OPTIONS: ProtOption[] = [
+  {
+    value: "rigidas",
+    label: "Rígidas",
+    whatsappMessage: "¡Hola! Quería consultar por las placas de bruxismo rígidas",
+  },
+  {
+    value: "flexibles",
+    label: "Flexibles",
+    whatsappMessage: "¡Hola! Quería consultar por las placas de bruxismo flexibles",
+  },
+]
